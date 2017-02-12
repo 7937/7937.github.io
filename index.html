@@ -374,30 +374,17 @@
 
       
         
-          
-            <h3 id="Apache"><a href="#Apache" class="headerlink" title="Apache"></a>Apache</h3><ul>
+          <h3 id="Apache"><a href="#Apache" class="headerlink" title="Apache"></a>Apache</h3><ul>
 <li>Mac自带服务器,相对简单快捷</li>
 </ul>
-<h6 id="配置步骤："><a href="#配置步骤：" class="headerlink" title="配置步骤："></a>配置步骤：</h6><p>1.在<code>/Users/用户名</code>目录下新建一个site文件夹<br>2.打开终端<br>3.<code>sudo cp /etc/apache2/httpd.conf /etc/apache2/httpd.conf.backup</code>备份httpd.conf文件来避免出错<br>4.<code>cd /etc/apache2</code>切换路径到apache2<br>5.<code>sudo vim httpd.conf</code>编辑httpd.conf文件:</p>
-<ul>
-<li><code>/DocumentRoot</code>光标定位到DocumentRoot</li>
-<li><strong>两处</strong> <code>/Library/WebServer/Documents</code>改为<code>/Users/用户名/site</code></li>
-<li><code>Options FollowSymLinks Multiviews</code>改为<code>Options Indexes FollowSymLinks MultiViews //10.9版本无需改</code></li>
-<li><code>/php</code>光标定位到php后删除行首注释符<code>#</code></li>
-<li><code>:wq</code>保存退出</li>
-</ul>
-<p>6.<code>cd /etc</code>目录下输入<code>sudo cp php.ini.default php.ini</code><br>7.<code>sudo apachectl -k restart</code>重启apache服务器</p>
-<ul>
-<li>配置完在浏览器输入localhost,显示页面目录对应<code>/用户名/site</code><br><img src="http://upload-images.jianshu.io/upload_images/1914971-b95b50fa9ae6167e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="配置成功"></li>
-</ul>
-<hr>
-<p>可能出现问题</p>
-<ul>
-<li>页面显示You don’t have permission to access / on this server.<br>–httpd.conf文件修改不完全,<code>/DocumentRoot</code>要改两处</li>
-<li>:wq保存退出时显示readonly<br>–编辑httpd.conf时<code>sudo vim httpd.conf</code>的sudo没写</li>
-</ul>
-
-          
+<h6 id="配置步骤："><a href="#配置步骤：" class="headerlink" title="配置步骤："></a>配置步骤：</h6><p>1.在<code>/Users/用户名</code>目录下新建一个site文件夹<br>2.打开终端<br>3.<code>sudo cp /etc/apache2/httpd.conf /etc/apache2/httpd.conf.backup</code>备份httpd.conf文件来避免出错</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/02/11/Apache/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -537,8 +524,7 @@
 
       
         
-          
-            <h4 id="一、多线程概述"><a href="#一、多线程概述" class="headerlink" title="一、多线程概述"></a>一、多线程概述</h4><ul>
+          <h4 id="一、多线程概述"><a href="#一、多线程概述" class="headerlink" title="一、多线程概述"></a>一、多线程概述</h4><ul>
 <li>一个程序进入内存运行时就成了一个进程,一个进程包含若干线程,其中必有一个主线程.线程之间运行是独立的.</li>
 <li>多线程优势</li>
 </ul>
@@ -547,88 +533,13 @@
 <li>充分发挥多核处理器的优势,不同任务分配给不同处理器,进入“并行运算”的状态</li>
 <li>将耗时、轮询或并发需求高的任务分配到其他线程进行,主线程负责统一更新界面,这样使用户体验更好.</li>
 </ol>
-<ul>
-<li>多线程劣势</li>
-</ul>
-<ol>
-<li>占内存(默认住线程1M 子线程512K)</li>
-<li>CPU开销大(一般同时开启线程小于5个).</li>
-<li>程序设计变得复杂.</li>
-</ol>
-<ul>
-<li>多线程状态<br>1.新建(New):分配内存,初始化内部成员变量的值<br>2.就绪(Runable):创建方法调用的栈和计数器<br>3.运行(Running):运行状态<br>4.终止(Exit):线程终止<br>5.阻塞(Blocked):线程需要暂停一段时间</li>
-</ul>
-<h4 id="二、iOS多线程技术"><a href="#二、iOS多线程技术" class="headerlink" title="二、iOS多线程技术"></a>二、iOS多线程技术</h4><ul>
-<li>pthread<br> 1.跨平台,可移植<br> 2.使用难度大<br> 3.C语言</li>
-<li>NSThread<br> 1.面向对象<br> 2.直接操作线程对象<br> 3.Objective-C</li>
-<li>GCD<br> 1.替代NSThread<br> 2.充分利用多核技术<br> 3.C语言</li>
-<li>NSOperation<br> 1.基于GCD,更简单<br> 2.更面向对象<br> 3.Objective-C</li>
-</ul>
-<h4 id="三、NSThread三种创建线程的方法及阻塞线程的测试"><a href="#三、NSThread三种创建线程的方法及阻塞线程的测试" class="headerlink" title="三、NSThread三种创建线程的方法及阻塞线程的测试"></a>三、NSThread三种创建线程的方法及阻塞线程的测试</h4><p>在storyboard里放一个Button和一个Text View(用来测试线程的阻塞)</p>
-<ul>
-<li>线程一启动就会执行<code>self</code>的<code>run:</code>方法</li>
-<li>测试阻塞线程时,由于<code>test</code>方法处在主线程,Debug栏一直输出,所以拖动文本视图没有任何反应.</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div></pre></td><td class="code"><pre><div class="line">#import &quot;ViewController.h&quot;</div><div class="line"></div><div class="line">@interface ViewController ()</div><div class="line"></div><div class="line">@end</div><div class="line"></div><div class="line">@implementation ViewController</div><div class="line"></div><div class="line">- (void)viewDidLoad &#123;</div><div class="line">    [super viewDidLoad];</div><div class="line">    // Do any additional setup after loading the view, typically from a nib.</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (void)didReceiveMemoryWarning &#123;</div><div class="line">    [super didReceiveMemoryWarning];</div><div class="line">    // Dispose of any resources that can be recreated.</div><div class="line">&#125;</div><div class="line"></div><div class="line">//获取当前、主线程</div><div class="line">- (IBAction)ClickBtn:(id)sender &#123;</div><div class="line">    NSThread *current = [NSThread currentThread];</div><div class="line">    NSLog(@&quot;Current thread %@ &quot;,current);</div><div class="line">    </div><div class="line">    NSThread *main = [NSThread mainThread];</div><div class="line">    NSLog(@&quot;Main thread %@&quot;,main);    </div><div class="line"></div><div class="line">    [self threadCreate1];</div><div class="line"></div><div class="line">    //第二种方法  [self threadCreate2];</div><div class="line">    //第三种方法  [self threadCreate3];</div><div class="line">    //测试阻塞方法  [self threadTest];</div><div class="line">&#125;</div><div class="line"></div><div class="line">//输出当前线程</div><div class="line">- (void)run:(NSString *)param&#123;</div><div class="line">    NSThread *current = [NSThread currentThread];</div><div class="line">    for(int i = 0; i&lt;10; i++)&#123;</div><div class="line">        NSLog(@&quot;%@ run %@&quot;,current,param);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (void)threadCreate1&#123;</div><div class="line">    NSThread *threadA =[[NSThread alloc]initWithTarget:self selector:@selector(run:) object:@&quot;线程A参数&quot;];</div><div class="line">    threadA.name = @&quot;线程A&quot;;</div><div class="line">    [threadA start];</div><div class="line">    </div><div class="line">    NSThread *threadB =[[NSThread alloc]initWithTarget:self selector:@selector(run:) object:@&quot;线程B参数&quot;];</div><div class="line">    threadB.name = @&quot;线程B&quot;;</div><div class="line">    [threadB start];</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (void)threadCreate2&#123;</div><div class="line">    [NSThread detachNewThreadSelector:@selector(run:) toTarget:self withObject:@&quot;方式2参数&quot;];</div><div class="line">&#125;</div><div class="line"></div><div class="line">//隐式创建并启动线程,在后台线程中执行</div><div class="line">- (void)threadCreate3&#123;</div><div class="line">    [self performSelectorInBackground:@selector(run:) withObject:@&quot;方式3参数&quot;];</div><div class="line">&#125;</div><div class="line"></div><div class="line">//测试阻塞线程</div><div class="line">- (void)threadTest&#123;</div><div class="line">    NSLog(@&quot;%@&quot;,[NSThread currentThread]);</div><div class="line">    for (int i=0 ; i&lt;10000; i++) &#123;</div><div class="line">        NSLog(@&quot;-----%d&quot;,i);</div><div class="line">    &#125;</div><div class="line">&#125;              </div><div class="line">@end</div></pre></td></tr></table></figure>
-<h4 id="四、线程间的安全隐患"><a href="#四、线程间的安全隐患" class="headerlink" title="四、线程间的安全隐患"></a>四、线程间的安全隐患</h4><ul>
-<li>线程共享会造成资源抢夺,引起数据错乱及安全问题</li>
-</ul>
-<p><img src="http://upload-images.jianshu.io/upload_images/1914971-f829bcd242b6eb0a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="加锁前后示意图"></p>
-<ul>
-<li>使用 <code>@synchronized(obj)</code> 修饰同步代码块</li>
-</ul>
-<h4 id="五、线程间的通信"><a href="#五、线程间的通信" class="headerlink" title="五、线程间的通信"></a>五、线程间的通信</h4><ul>
-<li>主线程的方法 <code>performSelectorOnMainThread:(SEL) withObject:(id) waitUntilDone:(BOOL)</code></li>
-<li>子线程的方法 <code>performSelector:(SEL) onThread:(NSThread *) withObject:(id) waitUntilDone:(BOOL)</code></li>
-</ul>
-<h1 id="GCD（Grand-Central-Dispatch）"><a href="#GCD（Grand-Central-Dispatch）" class="headerlink" title="GCD（Grand Central Dispatch）"></a>GCD（Grand Central Dispatch）</h1><ul>
-<li>基于C语言</li>
-<li>系统完全管理线程, 无需编写线程代码</li>
-</ul>
-<h4 id="一、队列（Dispatch-Queue）"><a href="#一、队列（Dispatch-Queue）" class="headerlink" title="一、队列（Dispatch Queue）"></a>一、队列（Dispatch Queue）</h4><ul>
-<li>将长期运行任务(代码块)拆成多个工作单元并添加到队列中,系统代为管理并放到多个线程上执行</li>
-<li>FIFO(先进先出)原则,先进队列先处理,但由于执行时间不同,不一定先结束</li>
-<li>分类：<br>1.Serial Dispatch Queue（串行队列）: 底层线程池只有一个线程,一次执行一个任务,执行完一个任务才能执行下一个<br>2.Concurrent Dispatch Queue（并行队列）: 底层线程池有多个线程,按FIFO原则执行多任务</li>
-</ul>
-<h4 id="二、创建队列"><a href="#二、创建队列" class="headerlink" title="二、创建队列"></a>二、创建队列</h4><h5 id="1-获取全局并发队列（Global-Concurrent-Dispatch-Queue）"><a href="#1-获取全局并发队列（Global-Concurrent-Dispatch-Queue）" class="headerlink" title="1.获取全局并发队列（Global Concurrent Dispatch Queue）"></a>1.获取全局并发队列（Global Concurrent Dispatch Queue）</h5><ul>
-<li>全局并发队列可以按FIFO顺序并行执行多个任务</li>
-<li>用<code>dispatch_get_global_queue(long identifier, unsigned long flags)</code>获取队列<br>第一个参数用于指定队列优先级,含4个宏定义常量:<br><code>#define DISPATCH_QUEUE_PRIORITY_HIGH 2  //高</code><br><code>#define DISPATCH_QUEUE_PRIORITY_DEFAULT 0  //默认(中)</code><br><code>#define DISPATCH_QUEUE_PRIORITY_LOW (-2)  //低</code><br><code>#define DISPATCH_QUEUE_PRIORITY_BACKGROUND INT16_MIN  //后台</code></li>
-</ul>
-<h5 id="2-创建串、并行队列（Serial-And-Concurrent-Dispatch-Queue）"><a href="#2-创建串、并行队列（Serial-And-Concurrent-Dispatch-Queue）" class="headerlink" title="2.创建串、并行队列（Serial And Concurrent Dispatch Queue）"></a>2.创建串、并行队列（Serial And Concurrent Dispatch Queue）</h5><ul>
-<li>创建队列<br><code>dispatch_queue_t</code><br><code>dispatch_queue_create(const char * label, dispatch_queue_attr_t attr)</code><br>第一个参数表示队列的字符串<br>第二个参数控制串并发队列(设为NULL默认串行):<br><code>DISPATCH_QUEUE_SERIAL  //串行</code><br><code>DISPATCH_QUEUE_CONCURRENT  //并行</code></li>
-</ul>
-<h5 id="3-获取主队列"><a href="#3-获取主队列" class="headerlink" title="3.获取主队列"></a>3.获取主队列</h5><ul>
-<li>主队列在主线程中执行</li>
-<li>用<code>dispatch_get_main_queue()</code>获取主队列</li>
-</ul>
-<h4 id="三、提交任务"><a href="#三、提交任务" class="headerlink" title="三、提交任务"></a>三、提交任务</h4><h5 id="1-同步添加任务到队列-不具备开启新线程能力-阻塞调用线程直到相应任务完成"><a href="#1-同步添加任务到队列-不具备开启新线程能力-阻塞调用线程直到相应任务完成" class="headerlink" title="1.同步添加任务到队列,不具备开启新线程能力,阻塞调用线程直到相应任务完成"></a>1.同步添加任务到队列,不具备开启新线程能力,阻塞调用线程直到相应任务完成</h5><ul>
-<li>调用函数<br><code>dispatch_sync(dispatch_queue_t queue, ^(void)block)  //代码块</code><br><code>dispatch_sync_f(dispatch_queue_t queue, void *context, dispatch_function_t work)  //函数</code>  </li>
-</ul>
-<h5 id="2-异步在新线程执行任务-可以让线程池立即执行-调用其他线程做其他事情-应尽可能使用异步"><a href="#2-异步在新线程执行任务-可以让线程池立即执行-调用其他线程做其他事情-应尽可能使用异步" class="headerlink" title="2.异步在新线程执行任务,可以让线程池立即执行,调用其他线程做其他事情,应尽可能使用异步."></a>2.异步在新线程执行任务,可以让线程池立即执行,调用其他线程做其他事情,应尽可能使用异步.</h5><ul>
-<li>调用函数:<br><code>dispatch_async(dispatch_queue_t queue, ^(void)block)  //代码块</code><br><code>dispatch_async_f(dispatch_queue_t queue, void *context, dispatch_function_t work)  //函数</code>  </li>
-<li>在storyboard放两个Button分别执行串、并行任务</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div></pre></td><td class="code"><pre><div class="line">#import &quot;ViewController.h&quot;</div><div class="line"></div><div class="line">@interface ViewController ()</div><div class="line"></div><div class="line">@end</div><div class="line"></div><div class="line">@implementation ViewController</div><div class="line"></div><div class="line">dispatch_queue_t serialQueue;</div><div class="line">dispatch_queue_t globalQueue;</div><div class="line"></div><div class="line">- (void)viewDidLoad &#123;</div><div class="line">    [super viewDidLoad];</div><div class="line">    //创建串行队列</div><div class="line">    serialQueue = dispatch_queue_create(&quot;serQ&quot;, DISPATCH_QUEUE_SERIAL);</div><div class="line">    //全局并发队列</div><div class="line">    globalQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (void)didReceiveMemoryWarning &#123;</div><div class="line">    [super didReceiveMemoryWarning];</div><div class="line">&#125;</div><div class="line"></div><div class="line">//串行异步执行任务</div><div class="line">- (IBAction)asynSerial:(id)sender &#123;</div><div class="line">    dispatch_async(serialQueue, ^&#123;</div><div class="line">        for (int i = 0; i&lt;10; i++) &#123;</div><div class="line">            NSLog(@&quot;%@  task1  %d&quot;,[NSThread currentThread],i);</div><div class="line">        &#125;</div><div class="line">    &#125;);</div><div class="line">    dispatch_async(serialQueue, ^&#123;</div><div class="line">        for (int i = 0; i&lt;10; i++) &#123;</div><div class="line">            NSLog(@&quot;%@  task2  %d&quot;,[NSThread currentThread],i);</div><div class="line">        &#125;</div><div class="line">    &#125;);</div><div class="line">&#125;</div><div class="line"></div><div class="line">//并行异步执行任务</div><div class="line">- (IBAction)asynConcurrent:(id)sender &#123;</div><div class="line">    dispatch_async(globalQueue, ^&#123;</div><div class="line">        for (int i = 0; i&lt;10; i++) &#123;</div><div class="line">            NSLog(@&quot;%@  task1  %d&quot;,[NSThread currentThread],i);</div><div class="line">        &#125;</div><div class="line">    &#125;);</div><div class="line">    </div><div class="line">    dispatch_async(globalQueue, ^&#123;</div><div class="line">        for (int i = 0; i&lt;10; i++) &#123;</div><div class="line">            NSLog(@&quot;%@  task2  %d&quot;,[NSThread currentThread],i);</div><div class="line">        &#125;</div><div class="line">    &#125;);</div><div class="line">&#125;</div><div class="line">@end</div></pre></td></tr></table></figure>
-<h4 id="四、单次或重复执行任务"><a href="#四、单次或重复执行任务" class="headerlink" title="四、单次或重复执行任务"></a>四、单次或重复执行任务</h4><ul>
-<li>单次执行<code>dispatch_once(dispatch_once_t * predicate, ^(void)block)</code></li>
-<li>多次执行<code>dispatch_apply(size_t iterations, dispatch_queue_t queue, ^(size_t)block)</code></li>
-</ul>
-<h4 id="五、调度队列组"><a href="#五、调度队列组" class="headerlink" title="五、调度队列组"></a>五、调度队列组</h4><ul>
-<li>将多个block组成一组,监听此组任务是否全部完成.<br>1.创建队列组对象<code>dispatch_group_create()</code><br>2.调度队列组<code>dispatch_group_async()</code><br>3.通知:任务执行完后通知执行其他操作<code>dispatch_group_notify()</code></li>
-</ul>
-<h1 id="NSOperation"><a href="#NSOperation" class="headerlink" title="NSOperation"></a>NSOperation</h1><ul>
-<li>NSOperation实例代表一个多线程任务</li>
-</ul>
-<p>新建一个继承NSOperation的类.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">//Download.h</div><div class="line"></div><div class="line">#import &lt;Foundation/Foundation.h&gt;</div><div class="line">#import &lt;UIKit/UIKit.h&gt;</div><div class="line"></div><div class="line">@class Download;</div><div class="line"></div><div class="line">//定义代理</div><div class="line">@protocol DownloadDelegate &lt;NSObject&gt;</div><div class="line"></div><div class="line">//下载方法</div><div class="line">- (void)download:(Download *)operation image:(UIImage *)image;</div><div class="line"></div><div class="line">@end</div><div class="line"></div><div class="line">@interface Download : NSOperation</div><div class="line"></div><div class="line">@property (nonatomic, strong)NSString *url;</div><div class="line"></div><div class="line">//代理属性</div><div class="line">@property (nonatomic, weak)id&lt;DownloadDelegate&gt;delegate;</div><div class="line">@end</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">//Download.m</div><div class="line"></div><div class="line">#import &quot;Download.h&quot;</div><div class="line"></div><div class="line">@implementation Download</div><div class="line"></div><div class="line">//重写main方法</div><div class="line">- (void)main</div><div class="line">&#123;</div><div class="line">    @autoreleasepool &#123;</div><div class="line">        NSURL *url = [NSURL URLWithString:self.url];</div><div class="line">        NSData *data = [NSData dataWithContentsOfURL:url];</div><div class="line">        UIImage *image = [UIImage  imageWithData:data];</div><div class="line">        [[NSOperationQueue mainQueue]addOperationWithBlock:^&#123;</div><div class="line">            NSLog(@&quot;download finished&quot;);</div><div class="line">            if ([self.delegate respondsToSelector:@selector(download:image:)]) &#123;</div><div class="line">                [self.delegate download:self image:image];</div><div class="line">            &#125;</div><div class="line">        &#125;];</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">@end</div></pre></td></tr></table></figure>
-<p>在storyboard中放一个Image View</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line">//ViewController.m</div><div class="line"></div><div class="line">#import &quot;ViewController.h&quot;</div><div class="line">#import &quot;Download.h&quot;</div><div class="line"></div><div class="line">@interface ViewController ()&lt;DownloadDelegate&gt;</div><div class="line"></div><div class="line">@property (strong, nonatomic) IBOutlet UIImageView *imageView;</div><div class="line"></div><div class="line">@end</div><div class="line"></div><div class="line">@implementation ViewController</div><div class="line"></div><div class="line">- (void)viewDidLoad &#123;</div><div class="line">    [super viewDidLoad];</div><div class="line"></div><div class="line">    //创建队列</div><div class="line">    NSOperationQueue *queue = [[NSOperationQueue alloc]init];</div><div class="line">    </div><div class="line">    //下载操作</div><div class="line">    Download *operation = [[Download alloc]init];</div><div class="line">    operation.delegate = self;</div><div class="line">    operation.url =@&quot;https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/943ff442182699.57c4298d2eb2a.png&quot; ;</div><div class="line"></div><div class="line">    //操作加到队列中</div><div class="line">    [queue addOperation:operation];</div><div class="line">&#125;</div><div class="line"></div><div class="line">//执行操作</div><div class="line">- (void)download:(Download *)operation image:(UIImage *)image&#123;</div><div class="line">    self.imageView.image = image;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (void)didReceiveMemoryWarning &#123;</div><div class="line">    [super didReceiveMemoryWarning];</div><div class="line">&#125;</div><div class="line">@end</div></pre></td></tr></table></figure>
-<p><img src="http://upload-images.jianshu.io/upload_images/1914971-1428c902ff435097.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="运行结果"></p>
-<hr>
-<p>若提示:<br>App Transport security has blocked a cleartext HTTP (http://) resource load since it is insecure. Temporary exceptions can be configured via your app’s Info.plist file.<br>解决方法:<br><img src="http://upload-images.jianshu.io/upload_images/1914971-259b55441833ac4e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="加上Allow Arbitrary Loads 并设置为YES"></p>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/02/11/GCD-Grand-Central-Dispatch/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -768,22 +679,16 @@
 
       
         
-          
-            <h4 id="Install-Oh-My-Zsh"><a href="#Install-Oh-My-Zsh" class="headerlink" title="Install Oh My Zsh"></a>Install <a href="http://example.com/" target="_blank" rel="external">Oh My Zsh</a></h4><p><code>wget --no-check-certificate http://install.ohmyz.sh -O - | sh</code></p>
+          <h4 id="Install-Oh-My-Zsh"><a href="#Install-Oh-My-Zsh" class="headerlink" title="Install Oh My Zsh"></a>Install <a href="http://example.com/">Oh My Zsh</a></h4><p><code>wget --no-check-certificate http://install.ohmyz.sh -O - | sh</code></p>
 <h4 id="View-existing-shell"><a href="#View-existing-shell" class="headerlink" title="View existing shell"></a>View existing shell</h4><p><code>cat /etc/shells</code>  </p>
 <h4 id="Set-zsh-as-default-shell"><a href="#Set-zsh-as-default-shell" class="headerlink" title="Set zsh as default shell"></a>Set zsh as default shell</h4><p><code>chsh -s /bin/zsh</code>  </p>
-<hr>
-<h4 id="Configuration"><a href="#Configuration" class="headerlink" title="Configuration"></a>Configuration</h4><h5 id="open-configuration-file-vim-zshrc"><a href="#open-configuration-file-vim-zshrc" class="headerlink" title="open configuration file vim ~/.zshrc"></a>open configuration file <code>vim ~/.zshrc</code></h5><ul>
-<li>enable self-correction <code>ENABLE_CORRECTION=&quot;true&quot;</code></li>
-<li>set plugins <code>plugins=(git osx autojump)</code></li>
-<li>add this to use autojump<br><code>[[ -s brew --prefix/etc/autojump.sh ]] &amp;&amp; . brew --prefix/etc/autojump.sh</code></li>
-</ul>
-<h5 id="open-your-themes-file-vim-oh-my-zsh-themes-robbyrussell-zsh-theme"><a href="#open-your-themes-file-vim-oh-my-zsh-themes-robbyrussell-zsh-theme" class="headerlink" title="open your themes file vim ~/.oh-my-zsh/themes/robbyrussell.zsh-theme"></a>open your themes file <code>vim ~/.oh-my-zsh/themes/robbyrussell.zsh-theme</code></h5><ul>
-<li><p>set absolute path</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">PROMPT=&apos;$&#123;ret_status&#125;%&#123;$fg_bold[green]%&#125;%p %&#123;$fg[cyan]%&#125;%d %&#123;$fg_bold[blue]%&#125;$(git_prompt_info)%&#123;$fg_bold[blue]%&#125; % %&#123;$reset_color%&#125;</div></pre></td></tr></table></figure></li>
-</ul>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/02/11/Install-Oh-My-Zsh/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
