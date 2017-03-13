@@ -5,16 +5,17 @@
     
   <url>
     <loc>http://yoursite.com/2017/03/13/recursiveDescription/</loc>
-    <lastmod>2017-03-13T04:50:13.000Z</lastmod>
+    <lastmod>2017-03-13T04:51:27.000Z</lastmod>
     <data>
         <display>
         <title>recursiveDescription解剖cell</title>
         <pubTime>2017-03-13T04:43:51.000Z</pubTime>
         
-        <tag>iOS</tag>
-         
          
            
+             
+              <breadCrumb title="iOS" url="http://yoursite.com/categories/iOS/"/>
+          
         </display>
     </data>
     </url>
