@@ -368,19 +368,16 @@
 
       
         
-          
-            <p>一直眼红Swipes这个App做的真是舒服, 读了大牛们关于自定义cell的框架发现都执着于给cell加button, 不能哧溜哧溜地往左滑, 就寻思着做一个顺滑的cell。断断续续写了两天眼看就要写完了, 然而往左滑的动画却一直是不如人意的 :(</p>
+          <p>一直眼红Swipes这个App做的真是舒服, 读了大牛们关于自定义cell的框架发现都执着于给cell加button, 不能哧溜哧溜地往左滑, 就寻思着做一个顺滑的cell。断断续续写了两天眼看就要写完了, 然而往左滑的动画却一直是不如人意的 :(</p>
 <hr>
-<h6 id="想了想是不是左滑的时候系统的Delete按钮在作祟-于是"><a href="#想了想是不是左滑的时候系统的Delete按钮在作祟-于是" class="headerlink" title="想了想是不是左滑的时候系统的Delete按钮在作祟, 于是"></a>想了想是不是左滑的时候系统的Delete按钮在作祟, 于是</h6><p>在<code>tableView:cellForRowAtIndexPath:</code>方法里加入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">#ifdef DEBUG</div><div class="line">    NSLog(@&quot;===cell===&quot;, [cell performSelector:@selector(recursiveDescription)]);</div><div class="line">#endif</div></pre></td></tr></table></figure></p>
-<p>在<code>tableView:commitEditingStyle:forRowAtIndexPath:</code>方法里加入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">#ifdef DEBUG</div><div class="line">    NSLog(@&quot;===tableview===&quot;, [[tableView cellForRowAtIndexPath:indexPath] performSelector:@selector(recursiveDescription)]);</div><div class="line">#endif</div></pre></td></tr></table></figure></p>
-<ul>
-<li><code>recursiveDescription</code>这是一个私有方法, 用来打印任意的视图结构, 并按视图层次排列, 它会递归地做这件事, 对每个子视图, 再去找它们的子视图(比用Reveal查看视图结构更完整)。</li>
-<li>Release是发行版本,不包含任何调试信息, Debug是调试版本，Debug和Release调用两个不同的底层库。 在大工程里调试时把<code>NSLog()</code>夹在<code>#ifdef DEBUG</code>和<code>#endif</code>中间，<code>NSLog()</code>只有在调试时才会被编译, 省去很多麻烦。<br><img src="http://upload-images.jianshu.io/upload_images/1914971-661bcd337f2b9dd8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="控制台输出cell所有子视图"><br><img src="http://upload-images.jianshu.io/upload_images/1914971-9b22d7e41c637fdc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="控制台输出tableView所有子视图"><br>一共输出了六个视图:<br>其中<code>UITableViewCellDeleteConfirmationView</code>是<code>ActionButton</code>(删除按钮)放置的位置, 宽高和Button一样。这是我要找的view! :)<br>不过……没开<code>canEditRowAtIndexPath:</code>方法是不会有这个view的。<br>嗯一个cell就是这样的干干净净</li>
-</ul>
-<p><img src="http://upload-images.jianshu.io/upload_images/1914971-25141aa54221eaa6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="蓝色是contentView、紫色是cell背景色"></p>
-<p>附顺滑的cell框架：<a href="https://github.com/7937/AJSlideCell.git" target="_blank" rel="external">https://github.com/7937/AJSlideCell.git</a></p>
-
-          
+<h6 id="想了想是不是左滑的时候系统的Delete按钮在作祟-于是"><a href="#想了想是不是左滑的时候系统的Delete按钮在作祟-于是" class="headerlink" title="想了想是不是左滑的时候系统的Delete按钮在作祟, 于是"></a>想了想是不是左滑的时候系统的Delete按钮在作祟, 于是</h6>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/03/13/recursiveDescription/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
