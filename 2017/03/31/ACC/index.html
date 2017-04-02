@@ -109,7 +109,7 @@ Component 组件：功能模块
 Capability 能力：操作响应">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1914971-01a600ef10c0eef7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1914971-522aa2f0aaded7c0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2017-04-02T08:09:09.000Z">
+<meta property="og:updated_time" content="2017-04-02T08:11:39.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="测试建模">
 <meta name="twitter:description" content="GTA： Google实现ACC模式建模的工具
@@ -429,7 +429,7 @@ Capability 能力：操作响应">
 <hr>
 <h5 id="等价划分：把测试案例组合缩减到仍足以测试软件的控制范围"><a href="#等价划分：把测试案例组合缩减到仍足以测试软件的控制范围" class="headerlink" title="等价划分：把测试案例组合缩减到仍足以测试软件的控制范围"></a>等价划分：把测试案例组合缩减到仍足以测试软件的控制范围</h5><hr>
 <h4 id="一、静态黑盒测试"><a href="#一、静态黑盒测试" class="headerlink" title="一、静态黑盒测试"></a>一、静态黑盒测试</h4><p>测试产品说明书，在编写软件前查找问题</p>
-<p>####二、动态黑盒测试<br>不了解软件如何工作的前提下测试软件</p>
+<h4 id="二、动态黑盒测试"><a href="#二、动态黑盒测试" class="headerlink" title="二、动态黑盒测试"></a>二、动态黑盒测试</h4><p>不了解软件如何工作的前提下测试软件</p>
 <h5 id="数据测试"><a href="#数据测试" class="headerlink" title="数据测试"></a>数据测试</h5><h6 id="1-边界条件"><a href="#1-边界条件" class="headerlink" title="1.边界条件"></a>1.边界条件</h6><ul>
 <li>根据边界选择等价划分包含的数据</li>
 <li>测试最后一个合法数据和超过边界的非法数据</li>
@@ -437,12 +437,10 @@ Capability 能力：操作响应">
 <h6 id="2-次边界条件"><a href="#2-次边界条件" class="headerlink" title="2.次边界条件"></a>2.次边界条件</h6><ul>
 <li>边界条件位于软件内部(如输入2的乘方、ASCII表)</li>
 </ul>
-<h6 id="3-默认、空白、空值、零值、无的等价空间"><a href="#3-默认、空白、空值、零值、无的等价空间" class="headerlink" title="3.默认、空白、空值、零值、无的等价空间"></a>3.默认、空白、空值、零值、无的等价空间</h6><h6 id="4-垃圾数据-破坏性实验，输入要求以外的数"><a href="#4-垃圾数据-破坏性实验，输入要求以外的数" class="headerlink" title="4.垃圾数据 (破坏性实验，输入要求以外的数)"></a>4.垃圾数据 (破坏性实验，输入要求以外的数)</h6><p>#####状态测试</p>
-<ul>
+<h6 id="3-默认、空白、空值、零值、无的等价空间"><a href="#3-默认、空白、空值、零值、无的等价空间" class="headerlink" title="3.默认、空白、空值、零值、无的等价空间"></a>3.默认、空白、空值、零值、无的等价空间</h6><h6 id="4-垃圾数据-破坏性实验，输入要求以外的数"><a href="#4-垃圾数据-破坏性实验，输入要求以外的数" class="headerlink" title="4.垃圾数据 (破坏性实验，输入要求以外的数)"></a>4.垃圾数据 (破坏性实验，输入要求以外的数)</h6><h5 id="状态测试"><a href="#状态测试" class="headerlink" title="状态测试"></a>状态测试</h5><ul>
 <li>选一项，软件改变外观、菜单或某些操作，即改变状态</li>
 </ul>
-<p>######1.建立状态转换图，包含：</p>
-<ul>
+<h6 id="1-建立状态转换图，包含："><a href="#1-建立状态转换图，包含：" class="headerlink" title="1.建立状态转换图，包含："></a>1.建立状态转换图，包含：</h6><ul>
 <li>软件可能进入的每一种独立状态</li>
 <li>一种状态转入另一种状态所需的输入或条件及结果</li>
 </ul>
@@ -453,47 +451,33 @@ Capability 能力：操作响应">
 <li>测试所有错误状态及返回值</li>
 <li>测试状态随机转换</li>
 </ul>
-<p>#####失败状态测试</p>
-<p>######1.竞争条件：多任务同时访问内存、硬件资源等</p>
-<p>######2.重复、压迫和重负</p>
-<ul>
+<h5 id="失败状态测试"><a href="#失败状态测试" class="headerlink" title="失败状态测试"></a>失败状态测试</h5><h6 id="1-竞争条件：多任务同时访问内存、硬件资源等"><a href="#1-竞争条件：多任务同时访问内存、硬件资源等" class="headerlink" title="1.竞争条件：多任务同时访问内存、硬件资源等"></a>1.竞争条件：多任务同时访问内存、硬件资源等</h6><h6 id="2-重复、压迫和重负"><a href="#2-重复、压迫和重负" class="headerlink" title="2.重复、压迫和重负"></a>2.重复、压迫和重负</h6><ul>
 <li>重复：检测内存是否不足</li>
 <li>压迫：限制软件的必要条件，在不理想条件下运行(内存小、CPU慢等)，检测软件对外部资源和要求的依赖程度</li>
 <li>重负：尽量提供条件，最大限度发掘软件能力</li>
 </ul>
-<p>#####其他测试<br>在已找到缺陷的地方再找</p>
-<p>####三、静态白盒测试<br>通过正式的审查和检查代码的细节</p>
-<p>#####正式审查</p>
-<ul>
+<h5 id="其他测试"><a href="#其他测试" class="headerlink" title="其他测试"></a>其他测试</h5><p>在已找到缺陷的地方再找</p>
+<h4 id="三、静态白盒测试"><a href="#三、静态白盒测试" class="headerlink" title="三、静态白盒测试"></a>三、静态白盒测试</h4><p>通过正式的审查和检查代码的细节</p>
+<h5 id="正式审查"><a href="#正式审查" class="headerlink" title="正式审查"></a>正式审查</h5><ul>
 <li>要素：确定问题、遵守规则、准备、编写报告</li>
 <li>过程：同事审查–&gt;公开陈述–&gt;检验(最正式)</li>
 </ul>
-<p>#####编码标准</p>
-<p>#####通用代码审查清单</p>
-<p>######1.数据引用错误</p>
-<ul>
+<h5 id="编码标准"><a href="#编码标准" class="headerlink" title="编码标准"></a>编码标准</h5><h5 id="通用代码审查清单"><a href="#通用代码审查清单" class="headerlink" title="通用代码审查清单"></a>通用代码审查清单</h5><h6 id="1-数据引用错误"><a href="#1-数据引用错误" class="headerlink" title="1.数据引用错误"></a>1.数据引用错误</h6><ul>
 <li>使用未经正确初始化和引用方式的变量、常量、数组、字符串<br>a.是否引用未初始化变量<br>b.下标是否为整数且在范围内<br>c.数组下标从零开始<br>d.应使用常量的地方用了变量<br>e.变量是否赋于不同类型值<br>f.引用的指针是否分配内存<br>g.一个数据结构是否被多处引用并声明</li>
 </ul>
-<p>######2.数据声明错误</p>
-<ul>
+<h6 id="2-数据声明错误"><a href="#2-数据声明错误" class="headerlink" title="2.数据声明错误"></a>2.数据声明错误</h6><ul>
 <li>不正确声明或使用变量、常量<br>a.变量长度、类型是否正确<br>b.声明时是否正确初始化<br>c.相似的变量名称<br>d.声明但未引用过的变量</li>
 </ul>
-<p>######3.计算错误</p>
-<p>a.不同数据类型计算<br>b.编译器对类型、长度不同变量的转换规则<br>c.是否有计算溢出<br>d.除数为0<br>e.精度丢失<br>f.计算结果是否超过有意义的范围(概率大于1小于0等)<br>g.运算的优先级，可否用括号</p>
-<p>######4.比较错误</p>
-<ul>
+<h6 id="3-计算错误"><a href="#3-计算错误" class="headerlink" title="3.计算错误"></a>3.计算错误</h6><p>a.不同数据类型计算<br>b.编译器对类型、长度不同变量的转换规则<br>c.是否有计算溢出<br>d.除数为0<br>e.精度丢失<br>f.计算结果是否超过有意义的范围(概率大于1小于0等)<br>g.运算的优先级，可否用括号</p>
+<h6 id="4-比较错误"><a href="#4-比较错误" class="headerlink" title="4.比较错误"></a>4.比较错误</h6><ul>
 <li>大于小于等于不等于、真假<br>a.精度是否影响分数/浮点值的比较<br>b.求值次序</li>
 </ul>
-<p>######5.控制流程错误</p>
-<ul>
+<h6 id="5-控制流程错误"><a href="#5-控制流程错误" class="headerlink" title="5.控制流程错误"></a>5.控制流程错误</h6><ul>
 <li>循环等控制结构未按预期工作</li>
 </ul>
-<p>######6.子程序参数错误</p>
-<p>######7.输入/输出错误</p>
-<p>a.软件是否严格遵守读写专用格式<br>b.外设不存在、未准备好等错误情况是否处理<br>c.读写过程存储空间占满</p>
-<p>######8.其他检查</p>
-<p>a.是否使用外语、拓展ASCII字符、统一编码取代ASCII<br>b.是否要移植到其他编译器和CPU<br>c.兼容性</p>
-<p>#####四、动态白盒测试(结构测试)<br>看到软件工作方式根据获取的信息对软件进行测试</p>
+<h6 id="6-子程序参数错误"><a href="#6-子程序参数错误" class="headerlink" title="6.子程序参数错误"></a>6.子程序参数错误</h6><h6 id="7-输入-输出错误"><a href="#7-输入-输出错误" class="headerlink" title="7.输入/输出错误"></a>7.输入/输出错误</h6><p>a.软件是否严格遵守读写专用格式<br>b.外设不存在、未准备好等错误情况是否处理<br>c.读写过程存储空间占满</p>
+<h6 id="8-其他检查"><a href="#8-其他检查" class="headerlink" title="8.其他检查"></a>8.其他检查</h6><p>a.是否使用外语、拓展ASCII字符、统一编码取代ASCII<br>b.是否要移植到其他编译器和CPU<br>c.兼容性</p>
+<h4 id="四、动态白盒测试-结构测试"><a href="#四、动态白盒测试-结构测试" class="headerlink" title="四、动态白盒测试(结构测试)"></a>四、动态白盒测试(结构测试)</h4><p>看到软件工作方式根据获取的信息对软件进行测试</p>
 <ul>
 <li>根据代码功能和实现方式确定哪些要测试</li>
 <li>在白盒测试前，先建立根据说明书黑盒测试案例</li>
@@ -502,13 +486,11 @@ Capability 能力：操作响应">
 <li>估算测试命中代码量和具体代码，然后调整测试，去掉多余补充遗漏</li>
 </ul>
 <p>另：测试–寻找软件缺陷、调试–修复缺陷</p>
-<p>######1.单元(模块)测试、集成测试</p>
-<ul>
+<h6 id="1-单元-模块-测试、集成测试"><a href="#1-单元-模块-测试、集成测试" class="headerlink" title="1.单元(模块)测试、集成测试"></a>1.单元(模块)测试、集成测试</h6><ul>
 <li>底层进行的单元测试集成在一起进行集成测试</li>
 </ul>
 <p>a.数据流：跟踪数据，在程序运行期间检查立即值<br>b.次边界<br>c.公式和等式<br>d.错误强制：迫使软件所有错误提示信息显示出来，不是检测错误的代码</p>
-<p>######2.代码范围分析</p>
-<ul>
+<h6 id="2-代码范围分析"><a href="#2-代码范围分析" class="headerlink" title="2.代码范围分析"></a>2.代码范围分析</h6><ul>
 <li>测试程序的状态以及其中的程序流程</li>
 <li><p>方式：利用调试器单步执行程序查看代码或者代码范围分析器<br>a.找出测试案例没有覆盖的部分则其模块代码从未执行，要额外编写该模块测试案例。<br>b.执行一系列测试但未增加代码覆盖百分比，则这些案例可能处于同一等价区间</p>
 </li>
@@ -690,7 +672,7 @@ Capability 能力：操作响应">
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#GTA：-Google实现ACC模式建模的工具"><span class="nav-number">1.</span> <span class="nav-text">GTA： Google实现ACC模式建模的工具</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#等价划分：把测试案例组合缩减到仍足以测试软件的控制范围"><span class="nav-number">2.</span> <span class="nav-text">等价划分：把测试案例组合缩减到仍足以测试软件的控制范围</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#一、静态黑盒测试"><span class="nav-number"></span> <span class="nav-text">一、静态黑盒测试</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#数据测试"><span class="nav-number">1.</span> <span class="nav-text">数据测试</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#1-边界条件"><span class="nav-number">1.1.</span> <span class="nav-text">1.边界条件</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#2-次边界条件"><span class="nav-number">1.2.</span> <span class="nav-text">2.次边界条件</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#3-默认、空白、空值、零值、无的等价空间"><span class="nav-number">1.3.</span> <span class="nav-text">3.默认、空白、空值、零值、无的等价空间</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#4-垃圾数据-破坏性实验，输入要求以外的数"><span class="nav-number">1.4.</span> <span class="nav-text">4.垃圾数据 (破坏性实验，输入要求以外的数)</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#GTA：-Google实现ACC模式建模的工具"><span class="nav-number">1.</span> <span class="nav-text">GTA： Google实现ACC模式建模的工具</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#等价划分：把测试案例组合缩减到仍足以测试软件的控制范围"><span class="nav-number">2.</span> <span class="nav-text">等价划分：把测试案例组合缩减到仍足以测试软件的控制范围</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#一、静态黑盒测试"><span class="nav-number"></span> <span class="nav-text">一、静态黑盒测试</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二、动态黑盒测试"><span class="nav-number"></span> <span class="nav-text">二、动态黑盒测试</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#数据测试"><span class="nav-number">1.</span> <span class="nav-text">数据测试</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#1-边界条件"><span class="nav-number">1.1.</span> <span class="nav-text">1.边界条件</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#2-次边界条件"><span class="nav-number">1.2.</span> <span class="nav-text">2.次边界条件</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#3-默认、空白、空值、零值、无的等价空间"><span class="nav-number">1.3.</span> <span class="nav-text">3.默认、空白、空值、零值、无的等价空间</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#4-垃圾数据-破坏性实验，输入要求以外的数"><span class="nav-number">1.4.</span> <span class="nav-text">4.垃圾数据 (破坏性实验，输入要求以外的数)</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#状态测试"><span class="nav-number">2.</span> <span class="nav-text">状态测试</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#1-建立状态转换图，包含："><span class="nav-number">2.1.</span> <span class="nav-text">1.建立状态转换图，包含：</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#失败状态测试"><span class="nav-number">3.</span> <span class="nav-text">失败状态测试</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#1-竞争条件：多任务同时访问内存、硬件资源等"><span class="nav-number">3.1.</span> <span class="nav-text">1.竞争条件：多任务同时访问内存、硬件资源等</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#2-重复、压迫和重负"><span class="nav-number">3.2.</span> <span class="nav-text">2.重复、压迫和重负</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#其他测试"><span class="nav-number">4.</span> <span class="nav-text">其他测试</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#三、静态白盒测试"><span class="nav-number"></span> <span class="nav-text">三、静态白盒测试</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#正式审查"><span class="nav-number">1.</span> <span class="nav-text">正式审查</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#编码标准"><span class="nav-number">2.</span> <span class="nav-text">编码标准</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#通用代码审查清单"><span class="nav-number">3.</span> <span class="nav-text">通用代码审查清单</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#1-数据引用错误"><span class="nav-number">3.1.</span> <span class="nav-text">1.数据引用错误</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#2-数据声明错误"><span class="nav-number">3.2.</span> <span class="nav-text">2.数据声明错误</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#3-计算错误"><span class="nav-number">3.3.</span> <span class="nav-text">3.计算错误</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#4-比较错误"><span class="nav-number">3.4.</span> <span class="nav-text">4.比较错误</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#5-控制流程错误"><span class="nav-number">3.5.</span> <span class="nav-text">5.控制流程错误</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#6-子程序参数错误"><span class="nav-number">3.6.</span> <span class="nav-text">6.子程序参数错误</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#7-输入-输出错误"><span class="nav-number">3.7.</span> <span class="nav-text">7.输入/输出错误</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#8-其他检查"><span class="nav-number">3.8.</span> <span class="nav-text">8.其他检查</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#四、动态白盒测试-结构测试"><span class="nav-number"></span> <span class="nav-text">四、动态白盒测试(结构测试)</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#1-单元-模块-测试、集成测试"><span class="nav-number">0.1.</span> <span class="nav-text">1.单元(模块)测试、集成测试</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#2-代码范围分析"><span class="nav-number">0.2.</span> <span class="nav-text">2.代码范围分析</span></a></li></ol></li></ol></div>
             
 
           </div>
