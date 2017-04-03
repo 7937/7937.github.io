@@ -4,8 +4,26 @@
 
     
   <url>
+    <loc>http://yoursite.com/2017/04/03/%E6%B5%8B%E8%AF%95/</loc>
+    <lastmod>2017-04-03T07:18:00.000Z</lastmod>
+    <data>
+        <display>
+        <title>测试</title>
+        <pubTime>2017-04-03T07:16:53.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="test" url="http://yoursite.com/categories/test/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/2017/03/31/ACC/</loc>
-    <lastmod>2017-04-02T08:11:39.000Z</lastmod>
+    <lastmod>2017-04-03T07:17:57.000Z</lastmod>
     <data>
         <display>
         <title>测试建模</title>
@@ -14,7 +32,7 @@
          
            
              
-              <breadCrumb title="other" url="http://yoursite.com/categories/other/"/>
+              <breadCrumb title="test" url="http://yoursite.com/categories/test/"/>
           
         </display>
     </data>
